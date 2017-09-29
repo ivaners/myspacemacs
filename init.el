@@ -31,6 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     yaml
+     javascript
      markdown
      python
      go
@@ -52,7 +54,7 @@ values."
      syntax-checking
      ;; version-control
      php
-     ;; phpplus
+     phpplus
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -320,8 +322,8 @@ you should place your code here."
  (setq tramp-ssh-controlmaster-options
                "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
    ;; define the refile targets
- (setq initial-frame-alist (quote ((fullscreen . maximized))))
- (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+ ;;(setq initial-frame-alist (quote ((fullscreen . maximized))))
+ (setq org-todo-keywords '((sequence "TODO(t)" "START(s)" "|" "DONE(d)" "CANCELLED(c)")))
  (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/gtd.org"
                          "~/gtd/tickler.org"))
@@ -331,7 +333,9 @@ you should place your code here."
                               ("T" "Tickler" entry
                                (file+headline "~/gtd/tickler.org" "Tickler")
                                "* %i%? \n %U")))
-
+(setq org-refile-targets (quote (("~/gtd/tickler.org" :maxlevel . 1)
+                                 ("~/gtd/organizer.org" :level . 1)
+                                 ("~/gtd/someday.org" :level . 2))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -341,10 +345,12 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/gtd/inbox.org" "~/gtd/tickler.org")))
+ '(org-agenda-files
+   (quote
+    ("~/gtd/tickler.org" "~/gtd/inbox.org" "~/gtd/gtd.org")))
  '(package-selected-packages
    (quote
-    (markdown-toc mmm-mode markdown-mode gh-md yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin phpunit phpcbf php-auto-yasnippets persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-guru go-eldoc fuzzy flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg eval-sexp-fu highlight elisp-slime-nav dumb-jump drupal-mode diminish define-word company-go go-mode column-enforce-mode clean-aindent-mode bind-map bind-key auto-yasnippet auto-highlight-symbol auto-compile packed ace-link ace-jump-helm-line helm helm-core ac-ispell auto-complete popup yasnippet undo-tree php-extras php-mode org-plus-contrib hydra evil-unimpaired f s dash company-statistics company async aggressive-indent adaptive-wrap ace-window avy))))
+    (yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode markdown-toc mmm-mode markdown-mode gh-md yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin phpunit phpcbf php-auto-yasnippets persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-guru go-eldoc fuzzy flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg eval-sexp-fu highlight elisp-slime-nav dumb-jump drupal-mode diminish define-word company-go go-mode column-enforce-mode clean-aindent-mode bind-map bind-key auto-yasnippet auto-highlight-symbol auto-compile packed ace-link ace-jump-helm-line helm helm-core ac-ispell auto-complete popup yasnippet undo-tree php-extras php-mode org-plus-contrib hydra evil-unimpaired f s dash company-statistics company async aggressive-indent adaptive-wrap ace-window avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

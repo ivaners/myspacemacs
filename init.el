@@ -330,10 +330,6 @@ you should place your code here."
                          "~/gtd/inbox.org"
                          "~/gtd/tickler.org"))
 
- (setq org-agenda-files '("~/gtd/inbox.org"
-                          "~/gtd/gtd.org"
-                          "~/gtd/tickler.org"))
-
  (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                 (file+headline "~/gtd/inbox.org" "Tasks")
                                 "* TODO %i%? ")

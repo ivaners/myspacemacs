@@ -342,6 +342,17 @@ you should place your code here."
                                  ("~/gtd/inbox.org" :level . 1)
                                  ("~/gtd/gtd.org" :level . 1)
                                  ("~/gtd/done.org" :level . 1))))
+
+(setq org-highest-priority ?A)
+(setq org-lowest-priority  ?D)
+(setq org-default-priority ?B)
+(setq org-priority-faces
+      '((?A . (:background "red" :foreground "white" :weight bold))
+        (?B . (:background "DarkOrange" :foreground "white" :weight bold))
+        (?C . (:background "yellow" :foreground "DarkGreen" :weight bold))
+        (?D . (:background "DodgerBlue" :foreground "black" :weight bold))
+        ))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

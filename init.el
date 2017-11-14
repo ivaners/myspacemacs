@@ -336,6 +336,8 @@ you should place your code here."
                                ("T" "Tickler" entry
                                 (file+headline "~/gtd/tickler.org" "Tickler")
                                 "* %i%? \n %U")
+                               ("j" "Journal" entry (file+datetree "~/gtd/journal.org")
+         "* %?\nEntered on %U\n %i\n %a")
 ))
 
 (setq org-refile-targets (quote (("~/gtd/tickler.org" :level . 1)
